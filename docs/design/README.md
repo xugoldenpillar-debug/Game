@@ -31,6 +31,11 @@
 22. `22-COMPANIONS-SIDE-QUESTS.md` — 6伙伴、基地与20–30支线框架
 23. `23-GAME-MODES-REPLAYABILITY.md` — 生存、防守、Boss Rush、NG+、随机行动
 24. `24-SETTINGS-ACCESSIBILITY-LOCALIZATION.md` — 设置、无障碍、本地化
+25. `25-COMBAT-TUNING-BASELINES.md` — 移动、闪避、攻击帧、枪械、Hit Stop等第一轮基准数值
+26. `26-ATTACHMENTS-STATUS-EFFECTS.md` — 枪械配件、伤害类型、状态效果和控制抗性
+27. `27-SAVE-STATE-MISSION-SCRIPTING.md` — 存档、检查点、任务触发器和脚本动作
+28. `28-BUILD-DEPLOY-CI.md` — 构建、CI、静态部署、缓存与发布回滚
+29. `29-PRODUCTION-CHECKLIST.md` — 从工程到最终通关的全项目完成清单
 
 ## 可直接使用的数据样例
 
