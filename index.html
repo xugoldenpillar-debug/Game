@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#081018">
+<title>BREAKPOINT / 火柴人：临界点</title>
+<style>
+html,body{margin:0;height:100%;background:#081018;color:#eaf3ff;font:16px/1.5 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+#boot{height:100%;display:grid;place-items:center;text-align:center;padding:24px;box-sizing:border-box}
+h1{letter-spacing:.18em;margin:0 0 8px}p{opacity:.82}small{opacity:.55}
+pre{max-width:760px;white-space:pre-wrap;text-align:left}
+</style>
+</head>
+<body>
+<div id="boot"><div><h1>BREAKPOINT</h1><p>正在载入游戏 / Loading game…</p><small>v0.9.0</small></div></div>
+<script type="module">
+const files = Array.from({length:7},(_,i)=>`./release/chunks/part-${String(i).padStart(2,'0')}.txt`);
+try {
+  const parts = [];
+  for (const url of files) {
+    const response = await fetch(url,{cache:'no-store'});
+    if (!response.ok) throw new Error(`${url}: HTTP ${response.status}`);
+    parts.push((await response.text()).trim());
+  }
+  const bytes = Uint8Array.from(atob(parts.join('')), c => c.charCodeAt(0));
+  if (!('DecompressionStream' in window)) {
+    throw new Error('This browser does not support DecompressionStream.');
+  }
+  const stream = new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'));
+  const html = await new Response(stream).text();
+  document.open();
+  document.write(html);
+  document.close();
+} catch (error) {
+  document.getElementById('boot').innerHTML =
+    `<div><h1>载入失败 / Load failed</h1><pre>${String(error)}</pre></div>`;
+}
+</script>
+</body>
+</html>
