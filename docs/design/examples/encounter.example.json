@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "id": "enc_c01_m03_parking_wave_b",
+  "budget": 8,
+  "spawnZones": ["parking_west_door", "parking_upper_ramp"],
+  "lockArena": true,
+  "completion": "killAll",
+  "waves": [
+    {
+      "trigger": {"type": "encounterStart"},
+      "delayMs": 250,
+      "maxAlive": 5,
+      "groups": [
+        {
+          "enemyId": "enemy_thug_melee",
+          "count": 3,
+          "eliteChance": 0.0,
+          "zoneTags": ["ground"],
+          "formation": "spread",
+          "delayBetweenSpawns": 220
+        },
+        {
+          "enemyId": "enemy_gang_pistol",
+          "count": 2,
+          "eliteChance": 0.0,
+          "zoneTags": ["upper"],
+          "formation": "ranged",
+          "delayBetweenSpawns": 300
+        }
+      ]
+    },
+    {
+      "trigger": {"type": "aliveBelow", "value": 2},
+      "delayMs": 900,
+      "maxAlive": 5,
+      "groups": [
+        {
+          "enemyId": "enemy_gang_shotgun",
+          "count": 1,
+          "eliteChance": 0.0,
+          "zoneTags": ["flank"],
+          "formation": "flank",
+          "delayBetweenSpawns": 0
+        },
+        {
+          "enemyId": "enemy_thug_bat",
+          "count": 2,
+          "eliteChance": 0.15,
+          "zoneTags": ["ground"],
+          "formation": "push",
+          "delayBetweenSpawns": 250
+        }
+      ]
+    }
+  ],
+  "reward": "loot_encounter_small"
+}
