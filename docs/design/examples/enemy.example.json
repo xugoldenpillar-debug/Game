@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "enemy_nova_rifleman",
+  "displayName": "NOVA Rifleman",
+  "faction": "nova",
+  "role": "pressure",
+  "maxHp": 110,
+  "armor": 15,
+  "poise": 45,
+  "moveSpeed": 3.2,
+  "runSpeed": 5.1,
+  "sightRange": 18,
+  "hearingScale": 1.0,
+  "preferredRange": [6, 12],
+  "weaponLoadout": [
+    {"ref": "wpn_rifle_carbine_a", "weight": 80},
+    {"ref": "wpn_rifle_modern_ak", "weight": 20}
+  ],
+  "abilities": ["take_cover", "burst_fire", "reposition", "melee_bash"],
+  "resistances": {
+    "fire": 0.0,
+    "electric": 0.0,
+    "explosion": 0.05
+  },
+  "aiProfile": "ai_nova_rifleman",
+  "lootTable": "loot_nova_rifleman",
+  "animationSet": "anim_humanoid_rifle",
+  "tags": ["human", "nova", "ranged"]
+}
