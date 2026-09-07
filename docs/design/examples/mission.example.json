@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "mission_c01_m03",
+  "chapter": 1,
+  "index": 3,
+  "title": "停车场",
+  "mapId": "map_city_parking_01",
+  "durationTarget": 18,
+  "briefing": "穿过多层停车场并抵达地铁方向，同时寻找被困平民。",
+  "objectives": [
+    {"id": "obj_reach_upper", "type": "reach", "target": "zone_upper_parking"},
+    {"id": "obj_clear_wave", "type": "kill", "target": "enc_c01_m03_parking_wave_b"},
+    {"id": "obj_exit", "type": "reach", "target": "zone_exit_to_subway"}
+  ],
+  "optionalObjectives": [
+    {"id": "obj_rescue_civilians", "type": "interact", "target": "npc_group_parking_civilians"}
+  ],
+  "checkpoints": ["cp_parking_entry", "cp_parking_upper", "cp_parking_exit"],
+  "encounterRefs": [
+    "enc_c01_m03_entry",
+    "enc_c01_m03_parking_wave_b",
+    "enc_c01_m03_exit"
+  ],
+  "scriptRefs": [
+    "script_vehicle_explosion_intro",
+    "script_open_exit_after_wave"
+  ],
+  "dialogueRefs": ["dlg_c01_m03_radio_01", "dlg_c01_m03_rescue_01"],
+  "lootOverrides": [],
+  "failConditions": [],
+  "completionRewards": [
+    {"type": "credits", "amount": 350},
+    {"type": "unlockWeapon", "ref": "wpn_shotgun_pump"}
+  ],
+  "unlocks": ["mission_c01_m04"]
+}
