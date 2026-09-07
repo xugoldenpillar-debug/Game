@@ -1,0 +1,17 @@
+name: Release Integrity
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Rebuild and verify standalone HTML
+        shell: bash
+        run: |
+          cat release/chunks/part-*.txt | base64 -d | gzip -dc > /tmp/BREAKPOINT-0.9.0.html
+          echo "22f52b6378fcd89ee0392fd31b1b8b8f3a110e20e3ad3477f55a65abb4affb14  /tmp/BREAKPOINT-0.9.0.html" | sha256sum -c -
